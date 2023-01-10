@@ -6,20 +6,20 @@ class Game {
     this.field = document.querySelectorAll(".game_field");
   }
 
-  activeImg() {
+  static activeImg() {
     const img = document.createElement("IMG");
     img.src = "img/goblin.png";
     return img;
   }
 
-  dellImg() {
+  static dellImg() {
     const img = document.querySelector("img");
     if (img) {
       img.remove();
     }
   }
 
-  randomNumber(maximum) {
+  static randomNumber(maximum) {
     return Math.floor(Math.random() * maximum);
   }
 
