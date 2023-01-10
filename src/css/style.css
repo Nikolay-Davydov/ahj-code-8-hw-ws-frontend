@@ -1,0 +1,23 @@
+  .game_field{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    border: 1px solid #000;
+  }
+  .field{
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    margin: 4px;
+    border: 1px solid #000;
+  }
+
+  img {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+  }
+  
