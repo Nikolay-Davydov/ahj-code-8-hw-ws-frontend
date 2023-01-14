@@ -1,4 +1,4 @@
-// TODO: write code here
+
 class Game {
   constructor() {
     this.previosCord = 0;
