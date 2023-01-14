@@ -1,17 +1,18 @@
-  .game_field{
+  .game_field {
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 450px;
-    border: 1px solid #000;
+    border: 1px solid black;
   }
-  .field{
+
+  .field {
     background-color: green;
     width: 100px;
     height: 100px;
     margin: 4px;
-    border: 1px solid #000;
+    border: 1px solid black;
   }
 
   img {
