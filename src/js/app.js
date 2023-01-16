@@ -7,7 +7,7 @@ class Game {
 
   activeImg() {
     const img = document.createElement("IMG");
-    img.src = "img/goblin.png";
+    img.src = "../img/goblin.png";
     return img;
   }
 
