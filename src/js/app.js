@@ -1,4 +1,3 @@
-
 class Game {
   constructor() {
     this.previosCord = 0;
@@ -6,20 +5,20 @@ class Game {
     this.field = document.querySelectorAll(".game_field");
   }
 
-  static activeImg() {
+  activeImg() {
     const img = document.createElement("IMG");
     img.src = "img/goblin.png";
     return img;
   }
 
-  static dellImg() {
+  dellImg() {
     const img = document.querySelector("img");
     if (img) {
       img.remove();
     }
   }
 
-  static randomNumber(maximum) {
+  randomNumber(maximum) {
     return Math.floor(Math.random() * maximum);
   }
 
