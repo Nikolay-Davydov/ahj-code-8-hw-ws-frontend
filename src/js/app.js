@@ -1,3 +1,5 @@
+import goblinImg from './../img/goblin.png'
+
 class Game {
   constructor() {
     this.previosCord = 0;
@@ -7,7 +9,7 @@ class Game {
 
   activeImg() {
     const img = document.createElement("img");
-    img.src = "./img/goblin.png";
+    img.src = goblinImg;
     return img;
   }
 
