@@ -6,8 +6,8 @@ class Game {
   }
 
   activeImg() {
-    const img = document.createElement("IMG");
-    img.src = "../img/goblin.png";
+    const img = document.createElement("img");
+    img.src = "./img/goblin.png";
     return img;
   }
 
