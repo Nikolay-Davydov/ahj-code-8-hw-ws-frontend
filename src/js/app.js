@@ -43,4 +43,4 @@ class Game {
 
 const newGame = new Game();
 
-setInterval(() => newGame.main(), 10000);
+setInterval(() => newGame.main(), 1000);
