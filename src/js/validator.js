@@ -62,4 +62,3 @@ export default class Validator {
     if (checkEl) checkEl.classList.remove("card-img-filter");
   }
 }
-
