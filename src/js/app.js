@@ -1,9 +1,7 @@
-import Board from "./board";
-import Goblin from "./goblin";
-import GamePlay from "./gamePlay";
+import Validator from "./Validator";
 
-const board = new Board();
-const char = new Goblin();
-const gameplay = new GamePlay(board, char);
+const container = document.querySelector(".validate-card-widjet");
 
-gameplay.init();
+const validator = new Validator(container);
+
+validator.init();
