@@ -1,21 +1,21 @@
-.card_blok{
+.card_blok {
     display: inline-flex;
     width: 290px;
     height: 30px;
     padding: auto;
 }
 
-.card{
+.card {
     width: 30px;
     height: 20px;
     margin: auto;
 }
 
-.form{
+.form {
     margin-top: 1%;
 }
 
-.btn{
+.btn {
     border-radius: 5px;
     border: none;
     height: 25px;
@@ -27,18 +27,18 @@
     background-color: #3e8e41
 }
 
-.btn:active{
+.btn:active {
     border: 3px solid;
     background-color: black;
 }
-.img{
+.img {
     border: 1px solid;
     border-radius: 4px;
     width:30px;
      height:20px;
 }
 
-.fog{
+.fog {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
