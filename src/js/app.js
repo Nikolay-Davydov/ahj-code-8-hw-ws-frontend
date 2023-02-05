@@ -1,5 +1,4 @@
-import Card from "./card.js"
-import Validate from "./validate.js"
+import Card from "./card.js";
 
 const crd = new Card();
 
