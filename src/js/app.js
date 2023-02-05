@@ -1,7 +1,3 @@
-import Validator from "./Validator";
+import Card from "./card.js"
 
-const container = document.querySelector(".validate-card-widjet");
-
-const validator = new Validator(container);
-
-validator.init();
+const crd = new Card();
