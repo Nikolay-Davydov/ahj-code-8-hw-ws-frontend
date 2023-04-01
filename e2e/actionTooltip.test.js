@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer";
 
-describe("page start", () => {
+describe("start", () => {
   let browser;
   let page;
 
@@ -19,11 +19,18 @@ describe("page start", () => {
   });
 
   //тесты
-  test("page rendering", async () => {
+  test("page test", async () => {
     await page.goto("http://localhost:8080");
 
     await page.waitForSelector("body");
   });
+
+  test("popover", async () => {
+    await page.goto("http://localhost:8080")
+    const popover = await page.$(".btn")
+    await popover.click()
+    await page.waitForSelector(".tooltip-wrapper");
+  }, 30000)
 
   //закрыть браузер
   afterAll(async () => {
