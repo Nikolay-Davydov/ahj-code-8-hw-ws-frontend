@@ -10,6 +10,7 @@ describe("start", () => {
     //открыть браузер
     browser = await puppeteer.launch({
       headless: false,
+      args: ["--no-sandbox"],
       slowMo: 100,
       devtools: true,
     });

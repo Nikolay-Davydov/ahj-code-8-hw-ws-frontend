@@ -49,6 +49,7 @@
   "dependencies": {
     "await": "^0.2.6",
     "core-js": "^3.27.2",
+    "puppeteer-core": "^19.8.1",
     "start-server-and-test": "^1.14.0"
   }
 }

@@ -5808,7 +5808,7 @@
   "resolved" "https://registry.npmjs.org/punycode/-/punycode-2.3.0.tgz"
   "version" "2.3.0"
 
-"puppeteer-core@19.8.1":
+"puppeteer-core@^19.8.1", "puppeteer-core@19.8.1":
   "integrity" "sha512-7yPMzusYRvJ/laLaMFIQ01E9WakKkJJXLsMAymH6y5EKqYe5hhn68/SbvF+1YJMb843GftU7gT86Fw8y5jkn3w=="
   "resolved" "https://registry.npmjs.org/puppeteer-core/-/puppeteer-core-19.8.1.tgz"
   "version" "19.8.1"
