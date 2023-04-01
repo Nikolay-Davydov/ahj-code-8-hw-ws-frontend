@@ -1,5 +1,13 @@
-import Card from "./card.js";
+import { Tooltip } from "./tooltip";
 
-const crd = new Card();
+const button = document.querySelector(".btn");
 
-crd.init();
+const tooltip = new Tooltip();
+
+button.addEventListener("click", () => {
+  if (document.querySelector(".tooltip-wrapper") === null) {
+    tooltip.addTooltip(button);
+  } else {
+    tooltip.removeTooltip();
+  }
+});
