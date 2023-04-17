@@ -1,5 +1,4 @@
 /* eslint-disable no-alert */
-/* eslint-disable import/extensions */
 import runRequest from './Request';
 
 export default class EditForm {

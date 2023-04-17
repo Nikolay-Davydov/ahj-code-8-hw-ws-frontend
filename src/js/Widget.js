@@ -1,5 +1,4 @@
 /* eslint-disable no-alert */
-/* eslint-disable import/extensions */
 import EditForm from './EditForm';
 import DeleteForm from './DeleteForm';
 import runRequest from './Request';
