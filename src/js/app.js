@@ -1,4 +1,4 @@
-import Widget from './Widget';
+import Widget from "./Widget";
 
-const helpDesk = new Widget(document.querySelector('.container'));
+const helpDesk = new Widget(document.querySelector(".container"));
 helpDesk.bindToDOM();

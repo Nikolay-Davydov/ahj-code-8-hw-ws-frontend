@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 
-import runRequest from './Request';
+import runRequest from "./Request";
 
 export default class DeleteForm {
   constructor(parentWidget) {
@@ -9,10 +9,10 @@ export default class DeleteForm {
 
   static get ctrlId() {
     return {
-      form: 'delete-form',
-      title: 'form-title',
-      cancel: 'button-cancel',
-      ok: 'button-ok',
+      form: "delete-form",
+      title: "form-title",
+      cancel: "button-cancel",
+      ok: "button-ok",
     };
   }
 
@@ -46,19 +46,19 @@ export default class DeleteForm {
   }
 
   bindToDOM() {
-    this.container = document.createElement('div');
-    this.container.className = 'help-desk-modal-form';
+    this.container = document.createElement("div");
+    this.container.className = "help-desk-modal-form";
     this.container.dataset.widget = this.constructor.ctrlId.form;
     this.container.innerHTML = this.constructor.markup;
 
     document.body.appendChild(this.container);
 
-    this.form = this.container.querySelector('form');
+    this.form = this.container.querySelector("form");
 
     this.title = this.form.querySelector(this.constructor.titleSelector);
 
-    this.form.addEventListener('submit', this.onSubmit.bind(this));
-    this.form.addEventListener('reset', this.onReset.bind(this));
+    this.form.addEventListener("submit", this.onSubmit.bind(this));
+    this.form.addEventListener("reset", this.onReset.bind(this));
   }
 
   async onSubmit(event) {
@@ -66,11 +66,11 @@ export default class DeleteForm {
 
     const params = {
       data: {
-        method: 'deleteTicket',
+        method: "deleteTicket",
         id: this.id,
       },
-      responseType: 'json',
-      method: 'POST',
+      responseType: "json",
+      method: "POST",
     };
 
     try {
@@ -83,11 +83,11 @@ export default class DeleteForm {
   }
 
   onReset() {
-    this.container.classList.remove('modal-active');
+    this.container.classList.remove("modal-active");
   }
 
   show(ticket) {
     this.id = ticket.dataset.index;
-    this.container.classList.add('modal-active');
+    this.container.classList.add("modal-active");
   }
 }

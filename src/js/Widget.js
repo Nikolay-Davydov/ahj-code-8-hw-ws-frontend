@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
-import EditForm from './EditForm';
-import DeleteForm from './DeleteForm';
-import runRequest from './Request';
+import EditForm from "./EditForm";
+import DeleteForm from "./DeleteForm";
+import runRequest from "./Request";
 
 export default class Widget {
   constructor(parentEl) {
@@ -11,17 +11,17 @@ export default class Widget {
 
   static get ctrlId() {
     return {
-      widget: 'help-desk-widget',
-      add: 'button-add',
-      tickets: 'tickets',
-      ticket: 'ticket',
-      status: 'button-status',
-      text: 'text',
-      name: 'name',
-      description: 'description',
-      created: 'created',
-      edit: 'button-edit',
-      delete: 'button-delete',
+      widget: "help-desk-widget",
+      add: "button-add",
+      tickets: "tickets",
+      ticket: "ticket",
+      status: "button-status",
+      text: "text",
+      name: "name",
+      description: "description",
+      created: "created",
+      edit: "button-edit",
+      delete: "button-delete",
     };
   }
 
@@ -80,7 +80,7 @@ export default class Widget {
   }
 
   async bindToDOM() {
-    this.widget = document.createElement('div');
+    this.widget = document.createElement("div");
     this.widget.dataset.widget = this.constructor.ctrlId.widget;
     this.widget.innerHTML = this.constructor.markup;
     this.parentEl.appendChild(this.widget);
@@ -94,15 +94,15 @@ export default class Widget {
     this.editForm = new EditForm(this);
     this.editForm.bindToDOM();
 
-    this.addButton.addEventListener('click', this.onAddButtonClick.bind(this));
-    this.tickets.addEventListener('click', this.onTicketsClick.bind(this));
+    this.addButton.addEventListener("click", this.onAddButtonClick.bind(this));
+    this.tickets.addEventListener("click", this.onTicketsClick.bind(this));
 
     const params = {
       data: {
-        method: 'allTickets',
+        method: "allTickets",
       },
-      responseType: 'json',
-      method: 'GET',
+      responseType: "json",
+      method: "GET",
     };
 
     try {
@@ -140,47 +140,56 @@ export default class Widget {
   }
 
   redraw(response) {
-    this.tickets.innerHTML = response.reduce((str, {
-      id, status, created,
-    }) => `
+    this.tickets.innerHTML = response.reduce(
+      (str, { id, status, created }) => `
       ${str}
       <div data-id="${this.constructor.ctrlId.ticket}" data-index="${id}">
-        <button class="help-desk-ticket-button" data-id="${this.constructor.ctrlId.status}">${status === 'true' ? '&#x2713;' : '&#x00A0;'}</button>
+        <button class="help-desk-ticket-button" data-id="${
+          this.constructor.ctrlId.status
+        }">${status === "true" ? "&#x2713;" : "&#x00A0;"}</button>
         <div class="text" data-id="${this.constructor.ctrlId.text}">
           <p data-id="${this.constructor.ctrlId.name}"></p>
         </div>
-        <p data-id="${this.constructor.ctrlId.created}">${this.constructor.dateToString(created)}</p>
-        <button class="help-desk-ticket-button" data-id="${this.constructor.ctrlId.edit}">&#x270E;</button>
-        <button class="help-desk-ticket-button" data-id="${this.constructor.ctrlId.delete}">&#x2716;</button>
+        <p data-id="${
+          this.constructor.ctrlId.created
+        }">${this.constructor.dateToString(created)}</p>
+        <button class="help-desk-ticket-button" data-id="${
+          this.constructor.ctrlId.edit
+        }">&#x270E;</button>
+        <button class="help-desk-ticket-button" data-id="${
+          this.constructor.ctrlId.delete
+        }">&#x2716;</button>
       </div>
-    `, '');
+    `,
+      ""
+    );
 
-    this.tickets.querySelectorAll(this.constructor.nameSelector).forEach((item, i) => {
-      const name = item;
-      name.textContent = response[i].name;
-    });
+    this.tickets
+      .querySelectorAll(this.constructor.nameSelector)
+      .forEach((item, i) => {
+        const name = item;
+        name.textContent = response[i].name;
+      });
   }
 
   static dateToString(timestamp) {
     const date = new Date(timestamp);
 
-    const result = `0${date.getDate()
-    }.0${date.getMonth() + 1
-    }.0${date.getFullYear() % 100
-    } 0${date.getHours()
-    }:0${date.getMinutes()}`;
+    const result = `0${date.getDate()}.0${date.getMonth() + 1}.0${
+      date.getFullYear() % 100
+    } 0${date.getHours()}:0${date.getMinutes()}`;
 
-    return result.replace(/\d(\d{2})/g, '$1');
+    return result.replace(/\d(\d{2})/g, "$1");
   }
 
   static async getDescription(id) {
     const params = {
       data: {
-        method: 'ticketById',
+        method: "ticketById",
         id,
       },
-      responseType: 'text',
-      method: 'GET',
+      responseType: "text",
+      method: "GET",
     };
 
     try {
@@ -198,14 +207,14 @@ export default class Widget {
 
     const params = {
       data: {
-        method: 'createTicket',
+        method: "createTicket",
         id,
-        status: status.textContent === '\u2713' ? 'false' : 'true',
+        status: status.textContent === "\u2713" ? "false" : "true",
         name: name.textContent,
         description: await this.constructor.getDescription(id),
       },
-      responseType: 'json',
-      method: 'POST',
+      responseType: "json",
+      method: "POST",
     };
 
     try {
@@ -222,7 +231,7 @@ export default class Widget {
       textContainer.removeChild(description);
       description = null;
     } else {
-      description = document.createElement('p');
+      description = document.createElement("p");
       description.dataset.id = this.ctrlId.description;
       textContainer.appendChild(description);
 

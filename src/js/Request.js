@@ -1,10 +1,8 @@
 export default function runRequest(options = {}) {
   return new Promise((resolve, reject) => {
-    const {
-      headers, data, responseType, method,
-    } = options;
+    const { headers, data, responseType, method } = options;
 
-    const url = 'http://localhost:7070/';
+    const url = "http://localhost:7070/";
 
     const params = new URLSearchParams();
 
@@ -16,10 +14,10 @@ export default function runRequest(options = {}) {
 
     const xhr = new XMLHttpRequest();
 
-    if (method === 'GET') {
-      xhr.open('GET', `${url}?${params}`);
+    if (method === "GET") {
+      xhr.open("GET", `${url}?${params}`);
     } else {
-      xhr.open('POST', `${url}?${params}`);
+      xhr.open("POST", `${url}?${params}`);
     }
 
     for (const header in headers) {
@@ -29,13 +27,13 @@ export default function runRequest(options = {}) {
     }
     xhr.responseType = responseType;
 
-    if (method === 'GET') {
+    if (method === "GET") {
       xhr.send();
     } else {
       xhr.send(params);
     }
 
-    xhr.addEventListener('load', () => {
+    xhr.addEventListener("load", () => {
       if (xhr.status >= 200 && xhr.status < 500) {
         resolve(xhr.response);
       } else {
