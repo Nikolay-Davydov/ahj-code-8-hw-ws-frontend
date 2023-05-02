@@ -1,3 +1,3 @@
-test('Вывод в консоль', () => {
-  expect('it works!').toBe('it works!');
+test("Вывод в консоль", () => {
+  expect("it works!").toBe("it works!");
 });
