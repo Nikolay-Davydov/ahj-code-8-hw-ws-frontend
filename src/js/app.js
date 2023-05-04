@@ -4,7 +4,7 @@ class Chat {
     this.user;
     this.proceed = document.querySelector(".proceed_modal");
     // this.apiUrl = "http:/localhost:9090";
-    this.apiUrl = "https://ahj-code-8-hw-ws-server.onrender.com/"
+    this.apiUrl = "https://ahj-code-8-hw-ws-server.onrender.com/";
     this.chat = document.querySelector(".chat");
     this.usersWindow = document.querySelector(".user_window");
   }
@@ -65,14 +65,17 @@ class Chat {
 
   async CheckUserName(userName) {
     if (userName.length > 0) {
-    //   const request = fetch("http://localhost:9090/checkUserName", {
-      const request = fetch("https://ahj-code-8-hw-ws-server.onrender.com/checkUserName", {  
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ user: userName, id: this.id }),
-      });
+      //   const request = fetch("http://localhost:9090/checkUserName", {
+      const request = fetch(
+        "https://ahj-code-8-hw-ws-server.onrender.com/checkUserName",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user: userName, id: this.id }),
+        }
+      );
       const result = await request;
       if (result.status == 202) {
         alert("Такой никнейм занят! Вам необходимо выбрать другой.");
