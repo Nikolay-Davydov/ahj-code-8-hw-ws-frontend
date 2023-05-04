@@ -3,7 +3,8 @@ class Chat {
     this.id;
     this.user;
     this.proceed = document.querySelector(".proceed_modal");
-    this.apiUrl = "http:/localhost:9090";
+    // this.apiUrl = "http:/localhost:9090";
+    this.apiUrl = "https://ahj-code-8-hw-ws-server.onrender.com/"
     this.chat = document.querySelector(".chat");
     this.usersWindow = document.querySelector(".user_window");
   }
@@ -37,7 +38,8 @@ class Chat {
   }
 
   ws() {
-    this.ws = new WebSocket("ws://localhost:9090/ws");
+    // this.ws = new WebSocket("ws://localhost:9090/ws");
+    this.ws = new WebSocket("ws://ahj-code-8-hw-ws-server.onrender.com/ws");
     this.ws.addEventListener("message", (e) => {
       const chatData = JSON.parse(e.data);
       if (chatData.type == "users") {
@@ -63,7 +65,8 @@ class Chat {
 
   async CheckUserName(userName) {
     if (userName.length > 0) {
-      const request = fetch("http://localhost:9090/checkUserName", {
+    //   const request = fetch("http://localhost:9090/checkUserName", {
+      const request = fetch("https://ahj-code-8-hw-ws-server.onrender.com/checkUserName", {  
         method: "POST",
         headers: {
           "Content-Type": "application/json",
