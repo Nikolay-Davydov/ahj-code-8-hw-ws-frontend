@@ -39,7 +39,7 @@ class Chat {
 
   ws() {
     // this.ws = new WebSocket("ws://localhost:9090/ws");
-    this.ws = new WebSocket("ws://ahj-code-8-hw-ws-server.onrender.com/ws");
+    this.ws = new WebSocket("wss://ahj-code-8-hw-ws-server.onrender.com/ws");
     this.ws.addEventListener("message", (e) => {
       const chatData = JSON.parse(e.data);
       if (chatData.type == "users") {
